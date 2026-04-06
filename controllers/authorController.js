@@ -4,7 +4,7 @@ var asyncHandler = require('express-async-handler');
 // 显示所有作者列表
 exports.author_list = asyncHandler(async function (req, res, next) {
   const authors = await Author.find().sort({ family_name: 1 });
-  res.json(authors);
+  res.render('author_list', { title: 'Author List', author_list: authors });
 });
 
 // 显示单个作者详情

@@ -33,7 +33,7 @@ exports.index = asyncHandler(async (req, res, next) => {
 // 显示所有藏书列表
 exports.book_list = asyncHandler(async function (req, res, next) {
   const books = await Book.find().populate('author').sort({ title: 1 });
-  res.json(books);
+  res.render('book_list', { title: 'Book List', book_list: books });
 });
 
 // 显示单本藏书详情

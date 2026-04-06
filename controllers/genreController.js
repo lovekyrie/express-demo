@@ -4,7 +4,7 @@ var asyncHandler = require('express-async-handler');
 // 显示所有流派列表
 exports.genre_list = asyncHandler(async function (req, res, next) {
   const genres = await Genre.find().sort({ name: 1 });
-  res.json(genres);
+  res.render('genre_list', { title: 'Genre List', genre_list: genres });
 });
 
 // 显示单个流派详情

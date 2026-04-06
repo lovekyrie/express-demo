@@ -6,7 +6,7 @@ exports.bookinstance_list = asyncHandler(async function (req, res, next) {
   const bookinstances = await BookInstance.find()
     .populate('book')
     .sort({ due_back: 1 });
-  res.json(bookinstances);
+  res.render('bookinstance_list', { title: 'Book Instance List', bookinstance_list: bookinstances });
 });
 
 // 显示单个藏书副本详情
